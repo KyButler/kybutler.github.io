@@ -1,4 +1,5 @@
 ---
+import bgImage from "@/layouts/main-layout/black_twill.webp"; // Import here
 import Header from "@/layouts/main-layout/Header.astro";
 import "@/styles/global.css";
 
@@ -19,7 +20,7 @@ const baseTitle = "KyButler";
         <meta name="generator" content={Astro.generator} />
         <title>{title ? `${baseTitle} - ${title}` : baseTitle}</title>
 
-        <style is:global>
+        <style is:global define:vars={{ bgUrl: `url(${bgImage.src})` }}>
             :root {
                 --brand-red: #901f22;
                 --brand-pink: #f3b9b9;
@@ -53,41 +54,18 @@ const baseTitle = "KyButler";
             body {
                 min-height: 100vh;
                 background-color: var(--brand-black);
+                background-image: var(--bgUrl);
+                background-repeat: repeat;
                 color: var(--brand-white);
-                font-family: sans-serif;
             }
 
             .text-fugaz {
                 font-family: "FugazOne", sans-serif;
             }
-
-            .texture-layer {
-                position: fixed;
-                inset: 0;
-                z-index: -1;
-
-                width: 100vw;
-                height: 100vh;
-
-                opacity: 0.15;
-                pointer-events: none;
-                filter: contrast(120%) brightness(100%);
-            }
         </style>
     </head>
 
     <body>
-        <svg class="texture-layer" xmlns="http://www.w3.org/2000/svg">
-            <filter id="noiseFilter">
-                <feTurbulence
-                    type="fractalNoise"
-                    baseFrequency="0.6"
-                    numOctaves="3"
-                    stitchTiles="stitch"></feTurbulence>
-            </filter>
-            <rect width="100%" height="100%" filter="url(#noiseFilter)"></rect>
-        </svg>
-
         <Header />
 
         <main class="relative z-10">
