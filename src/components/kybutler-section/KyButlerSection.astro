@@ -1,0 +1,25 @@
+---
+import foxtrot from "@/components/kybutler-section/Foxtrot.png";
+import Section from "@/components/Section.astro";
+import { Image } from "astro:assets";
+---
+
+<Section class="container mx-auto flex flex-col lg:flex-row items-center">
+    <h1
+        class="text-fugaz text-7xl md:text-8xl grow flex-col flex justify-center items-center h-52"
+    >
+        <div>
+            <span class="block text-white drop-shadow-[0_5px_0_rgba(0,0,0,1)]">
+                Hi, I'm
+            </span>
+            <span
+                class="inline-block"
+                style="color: var(--brand-pink); filter: drop-shadow(4px 4px 0px #000);"
+            >
+                KyButler!
+            </span>
+        </div>
+    </h1>
+
+    <Image src={foxtrot} alt="Foxtrot" class="mt-10 w-96 object-contain grow" />
+</Section>

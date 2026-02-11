@@ -1,0 +1,27 @@
+---
+interface Props {
+    color: string;
+    label?: string;
+}
+const { color, label } = Astro.props;
+---
+
+<button
+    class="p-4 rounded-full
+    flex items-center gap-2
+    cursor-pointer
+    
+    text-white
+    border-4 border-black
+    
+    text-xl tracking-wide
+    transition-all active:translate-y-1 active:shadow-none
+    hover:rotate-3 hover:scale-110"
+    style={`background-color: var(${color})`}
+>
+    <div class="flex items-center justify-center w-10 h-10">
+        <slot />
+    </div>
+
+    {label && <span class="leading-none text-fugaz">{label}</span>}
+</button>

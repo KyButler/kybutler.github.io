@@ -1,0 +1,27 @@
+---
+interface Props {
+    color: string;
+    class?: string;
+    name: string;
+    url: string;
+}
+
+const { color, class: className, name, url } = Astro.props;
+---
+
+<a class={className} href={url} target="_blank" rel="noopener noreferrer">
+    <button
+        class="p-4 rounded-full cursor-pointer w-full
+    
+    text-fugaz
+    text-white
+    border-4 border-black
+    
+    text-xl tracking-wide
+    transition-all active:translate-y-1 active:shadow-none
+    hover:rotate-1 hover:scale-105"
+        style={`background: var(${color})`}
+    >
+        {name}
+    </button>
+</a>
